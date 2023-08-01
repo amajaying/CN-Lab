@@ -1,4 +1,3 @@
-// Write a C program to check whether the Host machine is in Little Endian or Big Endian. Enter a number, print the content of each byte location, and Convert the Endianness of the same i.e. Little to Big Endian, and vice-versa.
 #include<stdio.h>
 #include <stdlib.h>
 
@@ -13,8 +12,21 @@ int main(){
         printf("digit in the %d byte=%d\n", i+1, *(c+i));
     }
 
-    printf("Extracted byte from LSB of the number = %d\n", *(c+0));
-    printf("Extracted byte from 2nd LSB of the number = %d\n", *(c+1));
+    printf("\nExtracted byte from LSB of the number = %d\n", *(c+0));
+    printf("Extracted byte from 2nd LSB of the number = %d\n\n", *(c+1));
+
+    int converted = (int)*(c+3) | (int) *(c+2)<<8 | (int) *(c+1)<<16 | (int) *(c+0);
+
+    if(*(c+0)>*(c+1)){
+        printf("The representation is: Little Endian\n\n");
+    }
+    else{
+        printf("The representation is: Big Endian\n\n");
+    }
+    
+    for(int i=3; i>=0; i--){
+        printf("digit in the %d byte=%d\n", 3-i+1, *(c+i));
+    }
 
 
 
