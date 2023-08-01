@@ -14,30 +14,30 @@ struct student_info{
     struct dob age;
 };
 
-void callbyvalue(struct student_info s2){
-    printf("Printing student details using call by value \n");
+void callbyValue(struct student_info s2){
+    printf("Using call by value \n");
     printf("Roll no: %d \n", s2.roll_no);
     printf("Name: %s \n",s2.name);
-    printf("CGPA: %f \n",s2.CGPA);
-    printf("DOB \n Year: %d \n Month: %d \n Day: %d \n",s2.age.year,s2.age.month,s2.age.day);
+    printf("CGPA: %2f \n",s2.CGPA);
+    printf("DOB: \nYear: %d \nMonth: %d \nDay: %d \n",s2.age.year,s2.age.month,s2.age.day);
 }
 
-void callbyaddress(struct student_info *s2){
-    printf("Printing student details using call by address \n");
+void callbyAddress(struct student_info *s2){
+    printf("\nUsing call by address \n");
     printf("Roll no: %d \n", (*s2).roll_no);
     printf("Name: %s \n",(*s2).name);
-    printf("CGPA: %f \n",(*s2).CGPA);
-    printf("DOB \n Year: %d \n Month: %d \n Day: %d \n",(*s2).age.year,(*s2).age.month,(*s2).age.day);
+    printf("CGPA: %2f \n",(*s2).CGPA);
+    printf("DOB: \nYear: %d \nMonth: %d \nDay: %d \n",(*s2).age.year,(*s2).age.month,(*s2).age.day);
 }
 
 int main(){
     struct student_info s1;
     s1.roll_no= 7;
-    strncpy(s1.name,"Unik",32);
-    s1.CGPA = 9.0;
-    s1.age.day = 12;
-    s1.age.month = 8;
-    s1.age.year = 2004;
-    callbyvalue(s1);
-    callbyaddress(&s1);
+    strncpy(s1.name,"Ajay",32);
+    s1.CGPA = 9.5;
+    s1.age.day = 15;
+    s1.age.month = 01;
+    s1.age.year = 2003;
+    callbyValue(s1);
+    callbyAddress(&s1);
 }
